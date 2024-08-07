@@ -23,7 +23,7 @@ This project is a Warehouse Management System built with React, Redux, and Tailw
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/your-username/warehouse-management-system.git
+   git clone https://github.com/Abinash7077/shopee.git
    cd warehouse-management-system
 2. **Run the project**
 
