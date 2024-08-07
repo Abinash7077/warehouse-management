@@ -20,7 +20,6 @@ const WarehouseList = () => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentWarehouses = filteredWarehouses.slice(indexOfFirstItem, indexOfLastItem);
   const totalPages = Math.ceil(filteredWarehouses.length / itemsPerPage);
-
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
@@ -36,14 +35,20 @@ const WarehouseList = () => {
   return (
     <>
     <div >
-      {currentWarehouses.map((warehouse) => (
-        <Link key={warehouse.id} to={`/warehouse/${warehouse.id}`}>
-          <div className="border border-gray-400 text-white p-4 mb-2">
-            <h2>{warehouse.name}</h2>
-            <p>{warehouse.city}</p>
-          </div>
-        </Link>
-      ))}
+    {currentWarehouses.map((warehouse) => (
+          <Link key={warehouse.id} to={`/warehouse/${warehouse.id}`}>
+            <div className="border border-gray-400 text-white p-4 mb-2">
+              <h2>{warehouse.name}</h2>
+              <p>{warehouse.city}</p>
+              <p>Status: {warehouse.is_live ? 'Live' : 'Not Live'}</p>
+              {warehouse.customFields && warehouse.customFields.map((field, index) => (
+                <div key={index}>
+                  <strong>{field.name}: </strong>{field.value}
+                </div>
+              ))}
+            </div>
+          </Link>
+        ))}
     </div>
      <div className="flex justify-between items-center mt-4">
      <button

@@ -4,7 +4,6 @@ import { setFilter } from '../store/warehouseSlice';
 
 const Filter = () => {
   const dispatch = useDispatch();
-  debugger;
   const warehouse = useSelector((state) => state.warehouse.warehouse);
 
   const cities = [...new Set(warehouse.map((warehouse) => warehouse.city))];

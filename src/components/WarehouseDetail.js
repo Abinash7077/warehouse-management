@@ -24,6 +24,7 @@ const WarehouseDetail = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(formData,"form")
     dispatch(editWarehouse({ ...formData, customFields }));
     navigate('/')
   };
@@ -36,11 +37,10 @@ const WarehouseDetail = () => {
   };
 
   const handleCustomFieldChange = (index, value) => {
-    const fields = [...customFields];
-    fields[index].value = value;
-    setCustomFields(fields);
+    const updatedFields = [...formData.customFields];
+    updatedFields[index].value = value;
+    setFormData({ ...formData, customFields: updatedFields });
   };
-
   return (
     <div>
       <form onSubmit={handleSubmit} className="space-y-4">

@@ -6,7 +6,7 @@ const initialState = {
   filters: {
     city: '',
     cluster: '',
-    spaceAvailable: 0,
+    spaceAvailable: 0, is_live: false,
   },
   search: '',
 };
@@ -19,6 +19,7 @@ const warehouselice = createSlice({
       state.search = action.payload;
     },
     setFilter(state, action) {
+      console.log(action.payload,"pay")
       state.filters = { ...state.filters, ...action.payload };
     },
     editWarehouse(state, action) {
